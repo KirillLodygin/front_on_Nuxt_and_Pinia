@@ -1,0 +1,95 @@
+:root {
+  --breadcrumb-height: 48px;
+  --breadcrumb-padding-right: 0;
+  --main-padding-x: 20px;
+  --main-padding-b: 15px;
+  --inter-padding: 8px;
+  --index-card-height: 250px;
+  --card-header-height: 52px;
+  --card-footer-height: 96px;
+  --card-container-width: 100%;
+  --card-col-width: 490px;
+
+  --top-menu-height: 15vh;
+  --navbar-menu-height: 74px;
+  --down-from-top-menu-height: 82vh;
+  --content-block-height: 71vh;
+
+  --map-modal-height: 90vh !important;
+  --map-modal-width: 90vw !important;
+  --map-modal-max-width: 90vw !important;
+
+  --main-background: rgba(var(--bs-secondary-rgb), 0.25);
+  --opacity-0-white: #ffffff00;
+  --opacity-10-white: #ffffff10;
+  --opacity-20-white: #ffffff20;
+  --opacity-50-white: #ffffff50;
+  --white: #fff;
+  --black: #000;
+  --white-rgb: 255, 255, 255;
+  --black-rgb: 0, 0, 0;
+
+  /* Оттенки серого */
+  --gray-d40: #555a5d;
+  --gray-d30: #6d7479;
+  --gray-d20: #868d92;
+  --gray-d10: #a2a7aa;
+  --gray: #bcc0c2;
+  --gray-l10: #d7d9db;
+  --gray-l20: #e7e9ea;
+  --gray-l30: #f1f2f3;
+  --gray-l40: #f7f7f8;
+
+  --deep-gray: #555a5d;
+  --dark-gray: #868d92;
+  --light-gray: #f1f2f3;
+
+  --deep-gray-rgb: 85, 90, 93;
+  --gray-rgb: 217, 217, 217;
+  --dark-gray-rgb: 134, 141, 146;
+
+  /* Оттенки основного */
+  --primary-d40: #132734;
+  --primary-d30: #1a4460;
+  --primary-d20: #1d6191;
+  --primary-d15: #1c70ab;
+  --primary-d10: #1a80c6;
+  --primary-d05: #1690e3;
+  --primary: #249df0;
+  --primary-l10: #4bb4fc;
+  --primary-l20: #7ac9ff;
+  --primary-l30: #addeff;
+  --primary-l40: #e0f3ff;
+  --primary-l50: #f5fbff;
+
+  --primary-d20-rgb: 29, 97, 145;
+  --primary-d10-rgb: 26, 128, 198;
+  --primary-rgb: 36, 157, 240;
+
+  --danger-d20: #bf223b;
+  --danger: #f6506b;
+  --danger-l20: #ff7a90;
+  --danger-l50: #fff0f2;
+
+  --danger-d20-rgb: 191, 34, 59;
+  --danger-rgb: 246, 80, 107;
+
+  //--dropdown-breadcrum-bg-color: #C0E6FF;
+  --dropdown-breadcrum-bg-color: #f1f2f3;
+  --whisper: #e9e9e9;
+  --white-smoke: #f1f2f3;
+
+  --dropdown-shadow: 0 3px 8px -2px rgba(0, 0, 0, 0.45);
+  --modal-shadow: 0 3px 8px -2px rgba(0, 0, 0, 0.45);
+  --btn-lg-shadow: 0 3px 4px -2px rgba(0, 0, 0, 0.45);
+  --btn-lg-specular: inset 0 2px 3px -1px var(--primary-l40);
+  --panel-shadow: 0 1px 3px -1px rgba(0, 0, 0, 0.4);
+
+  --text-large-4: 3rem;
+  --text-large-3: 2.5rem;
+  --text-large-2: 2rem;
+  --text-large-1: 1.5rem;
+  --text-big: 1.25rem;
+  --text-normal: 1rem;
+  --text-small: 0.75rem;
+}

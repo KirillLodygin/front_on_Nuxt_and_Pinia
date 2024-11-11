@@ -1,0 +1,21 @@
+version: "3.9"
+services:
+  frontend_app:
+    build: ./frontend
+    command: npm run dev
+    ports:
+      - 3000:3000
+      - 24678:24678
+    environment:
+      - TZ=Europe/Moscow
+      - NODE_ENV=development
+      - API_HOST=${API_HOST_PROD}
+      - HOST=0.0.0.0
+      - TILE_SERVER=${TILE_SERVER}
+      - SEARCH_SERVER=${SEARCH_SERVER}
+      - ROUTING_SERVER=${ROUTING_SERVER}
+      - CHOKIDAR_USEPOLLING=true
+      - DEVTOOLS_ENABLED=true
+    volumes:
+      - /nuxt-app/node_modules
+      - ./frontend/src:/nuxt-app

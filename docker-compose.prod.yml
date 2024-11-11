@@ -1,0 +1,28 @@
+services:
+  frontend_app:
+    build:
+      context: ./frontend
+      dockerfile: Dockerfile.prod
+      args:
+        API_HOST: ${API_HOST_PROD}
+        TILE_SERVER: ${TILE_SERVER}
+        SEARCH_SERVER: ${SEARCH_SERVER}
+        ROUTING_SERVER: ${ROUTING_SERVER}
+    volumes:
+      - front_release_1:/nuxt-app/dist 
+    command: >
+      sh -c "rm -rf /nuxt-app/dist/* ; cp -r /nuxt-app/tmp/* /nuxt-app/dist/"
+#    ports:
+#      - 3500:3500
+    environment:
+      - TZ=Europe/Moscow
+    #restart: always
+volumes: 
+  front_release_1:
+    driver: local
+    driver_opts:
+        o: bind
+        type: none
+        device: /home/dev/Documents/front_test
+        #device: /opt/gisafk_data/frontend_release_2
+ 

@@ -1,0 +1,98 @@
+.user-page-wrapper {
+  // width: 100%;
+  background-color: var(--white);
+  display: flex;
+
+  flex-direction: column;
+  flex-flow: column nowrap;
+  background-color: var(--white);
+  padding: 12px 24px;
+
+  height: 100%;
+  overflow: hidden !important;
+  position: relative;
+}
+
+.user-profile-menu-side-bar {
+  width: 325px;
+  margin-top: 13px;
+  border-right: 1px solid var(--dark-gray);
+
+  &_icon {
+    width: 20px !important;
+    height: 20px !important;
+    cursor: auto !important;
+  }
+
+  &_tab {
+    padding: 4px 6px;
+    line-height: 24px;
+    font-weight: 400;
+    font-size: 16px;
+    color: var(--black);
+
+    &__active {
+      background-color: var(--gray);
+    }
+  }
+
+  &_sections {
+    height: 32px;
+
+    padding-left: 34px;
+  }
+
+  &_section {
+    line-height: 21px;
+    font-weight: 400;
+    font-size: 14px;
+
+    color: var(--black);
+    height: 100%;
+
+    &__active {
+      background-color: var(--gray);
+    }
+  }
+}
+
+.user-profile-body {
+  flex: 1 auto;
+  display: flex;
+  overflow: hidden;
+}
+
+.user-profile-body-content {
+  flex: 1;
+  position: relative;
+  height: 100%;
+  display: flex;
+  flex-direction: column;
+  padding: 25px 0px 25px 34px;
+}
+
+.user-profile-header {
+  flex-grow: 0;
+  height: fit-content;
+  // height: 67px;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  padding-bottom: 13px;
+  min-height: 36px;
+  // border-bottom: 1px solid var(--gray);
+}
+
+.user-profile-header-text {
+  font-family: Manrope;
+  font-size: 24px;
+  font-weight: 400;
+  line-height: 36px;
+  letter-spacing: 0.30000001192092896px;
+  text-align: left;
+}
+
+.user-profile-body-tab {
+  flex: 1;
+  height: 100%;
+}

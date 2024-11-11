@@ -1,0 +1,68 @@
+version: "3.9"
+services:
+  db:
+    image: kartoza/postgis:15-3
+    volumes:
+      - ./data/postgres_data:/opt/postgres/data
+    environment:
+      - POSTGRES_DB=gis_afk
+      - POSTGRES_USER=postgres
+      - POSTGRES_PASSWORD=postgres
+      - DATADIR=/opt/postgres/data
+      - TZ=Europe/Moscow
+    ports:
+      - 15432:5432
+  backend_app:
+    build:
+      context: ./backend
+      target: devel
+    command: >
+      sh -c "python manage.py wait_for_db &&
+         python manage.py makemigrations --no-input &&
+         python manage.py migrate --no-input &&
+         python manage.py enshure_superuser &&
+         python manage.py runserver 0.0.0.0:8000"
+
+    volumes:
+      - ./backend/src:/app
+      - ./data/gisafk_static:/app/staticfiles
+      - ./data/gisafk_media:/app/mediafiles
+    ports:
+      - 8000:8000
+    environment:
+      - TZ=Europe/Moscow
+      - DEBUG=True
+      - SECRET_KEY=`gvl#&io73q_6@u#2fw@fbk^6^*f5!^fa#r)qrpa@ehh451_)7(`
+      - DB_ENGINE=django.contrib.gis.db.backends.postgis
+      - DB_NAME=gis_afk
+      - DB_USER=postgres
+      - DB_PASSWD=postgres
+      - DB_HOST=db
+      - DB_PORT=5432
+      - DJANGO_SUPERUSER_EMAIL=dev@local.host
+      - DJANGO_SUPERUSER_PASSWORD=123
+      - DJANGO_SUPERUSER_USERNAME=dev
+      - TILE_SERVER=${TILE_SERVER}
+      - ROUTING_SERVER=${ROUTING_SERVER}
+    depends_on:
+      - db
+  frontend_app:
+    build: ./frontend
+    command: npm run dev
+    ports:
+      - 3000:3000
+      - 24678:24678
+    environment:
+      - TZ=Europe/Moscow
+      - NODE_ENV=development
+      - API_HOST=${API_HOST_LOCAL}
+      - HOST=0.0.0.0
+      - TILE_SERVER=${TILE_SERVER}
+      - SEARCH_SERVER=${SEARCH_SERVER}
+      - ROUTING_SERVER=${ROUTING_SERVER}
+      - CHOKIDAR_USEPOLLING=true
+    volumes:
+      - /nuxt-app/node_modules
+      - ./frontend/src:/nuxt-app
+    depends_on:
+      - backend_app
